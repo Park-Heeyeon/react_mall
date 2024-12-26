@@ -4,7 +4,7 @@ import { BrandDealItemType } from "@/types/deals";
 import BrandDealDetailItem from "./BrandDealDetailItem";
 import styles from "./index.module.css";
 import useIntersectionObserver from "@/hooks/common/intersectionObserver";
-import SkeletonCard from "@/components/SkeletonCard";
+import SkeletonItem from "@/components/SkeletonItem";
 
 interface BrandDealDetailListProps {
   isFromViewAll: boolean;
@@ -44,7 +44,7 @@ const BrandDealDetailList: React.FC<BrandDealDetailListProps> = ({
       {isLoading
         ? Array(20)
             .fill(null)
-            .map((_, idx) => <SkeletonCard key={idx} />)
+            .map((_, idx) => <SkeletonItem key={idx} />)
         : brandDealDetailItems.map((item: BrandDealItemType) => (
             <BrandDealDetailItem key={item.id} brandDealDetailItem={item} />
           ))}
