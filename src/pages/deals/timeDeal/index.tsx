@@ -1,6 +1,5 @@
 import { Header } from "@/components";
-import LureDealSection from "./section/lureDeal";
-// import { BrandDealSection, TimeDealSection } from "./section";
+import { LureDealSection, BrandDealSection, TimeDealSection } from "./section";
 
 const TimeDeal = () => {
   return (
@@ -8,9 +7,8 @@ const TimeDeal = () => {
       <Header title="타임특가" isBackButtonVisible={false} />
       <div>
         <LureDealSection />
-        {/*
         <BrandDealSection />
-        <TimeDealSection /> */}
+        <TimeDealSection />
       </div>
     </div>
   );

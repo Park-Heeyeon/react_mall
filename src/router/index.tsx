@@ -4,10 +4,9 @@ import {
   ScrollRestoration,
   createBrowserRouter,
 } from "react-router-dom";
-// import { TimeDeal, BrandDeal } from "@/pages";
 import { Suspense } from "react";
-import TimeDeal from "@/pages/deals/timeDeal";
-// import ErrorBoundary from "@/components/ErrorBoundary";
+import ErrorBoundary from "@/pages/error";
+import { TimeDeal, BrandDeal } from "@/pages";
 
 export const webPath = {
   timeDeal: () => "/deals/time-deal",
@@ -47,14 +46,14 @@ const routes = [
   {
     path: "/",
     element: <Root />,
-    // errorElement: <ErrorBoundary />,
+    errorElement: <ErrorBoundary />,
     children: [
       { path: "/", element: <Navigate to={webPath.timeDeal()} replace /> },
       {
         path: webPath.timeDeal(),
         element: <TimeDeal />,
       },
-      //   { path: webPath.brandDeal(), element: <BrandDeal /> },
+      { path: webPath.brandDeal(), element: <BrandDeal /> },
     ],
   },
 ];

@@ -1,0 +1,82 @@
+.itemList {
+  padding: 10px 0;
+}
+
+.itemBox {
+  display: flex;
+  padding: 10px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.itemImage {
+  width: 141px;
+  height: 141px;
+  border-radius: 8px;
+  border: 1px solid #eeeff3;
+  overflow: hidden;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.itemImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.itemInfo {
+  flex-grow: 1; /* 남은 공간을 차지 */
+}
+
+.itemTitle {
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.itemStockGraph {
+  position: relative;
+  width: 100%;
+  height: 16px;
+  background-color: #ffa98e;
+  border-radius: 20px;
+  margin: 8px 0 12px;
+  overflow: hidden;
+}
+
+.itemStockGraphFill {
+  height: 100%;
+  background-color: #ff6231;
+  border-radius: 20px;
+  transition: width 1s ease-in-out; /* width 변경 시 애니메이션 */
+}
+
+.itemStockText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  letter-spacing: -0.2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.itemSalePrice {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+  color: #f8323e;
+}
+
+.itemPrice {
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.2px;
+  color: #bcbdc3;
+}
