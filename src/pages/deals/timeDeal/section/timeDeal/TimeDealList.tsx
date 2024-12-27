@@ -46,7 +46,9 @@ const TimeDealList: React.FC<TimeDealListProps> = ({
         <VirtuosoGrid
           useWindowScroll
           data={Array.from({ length: 20 })}
-          itemContent={(index) => <SkeletonCard key={index} />}
+          itemContent={(index) => (
+            <SkeletonCard key={index} width="100%" height="100%" />
+          )}
           listClassName={styles.itemList}
           itemClassName={styles.itemBox}
         />
@@ -68,18 +70,12 @@ const TimeDealList: React.FC<TimeDealListProps> = ({
         itemContent={(index) => {
           const item = timeDealItems[index];
           return (
-            <>
-              {isLoading ? (
-                <SkeletonCard key={index} width="100%" height="100%" />
-              ) : (
-                <TimeDealItem
-                  key={item.id}
-                  timeDealItem={item}
-                  currentTab={currentTab}
-                  isTimeDealOpen={isTimeDealOpen}
-                />
-              )}
-            </>
+            <TimeDealItem
+              key={item.id}
+              timeDealItem={item}
+              currentTab={currentTab}
+              isTimeDealOpen={isTimeDealOpen}
+            />
           );
         }}
       />
