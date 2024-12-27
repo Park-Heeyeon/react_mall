@@ -4,6 +4,7 @@ import { DealTimeType, TimeDealItemType } from "@/types/deals";
 import TimeDealItem from "./TimeDealItem";
 import { VirtuosoGrid } from "react-virtuoso";
 import { useCallback } from "react";
+import SkeletonCard from "@/components/SkeletonCard";
 
 interface TimeDealListProps {
   isTimeDealOpen: boolean;
@@ -39,7 +40,19 @@ const TimeDealList: React.FC<TimeDealListProps> = ({
     }
   }, [hasNextPage, isFetching, isFetchingNextPage, isLoading, fetchNextPage]);
 
-  //   if (isLoading) return <LoadingSpinner />;
+  if (isLoading) {
+    return (
+      <div className={styles.itemListWrap}>
+        <VirtuosoGrid
+          useWindowScroll
+          data={Array.from({ length: 20 })}
+          itemContent={(index) => <SkeletonCard key={index} />}
+          listClassName={styles.itemList}
+          itemClassName={styles.itemBox}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.itemListWrap}>
@@ -55,12 +68,18 @@ const TimeDealList: React.FC<TimeDealListProps> = ({
         itemContent={(index) => {
           const item = timeDealItems[index];
           return (
-            <TimeDealItem
-              key={item.id}
-              timeDealItem={item}
-              currentTab={currentTab}
-              isTimeDealOpen={isTimeDealOpen}
-            />
+            <>
+              {isLoading ? (
+                <SkeletonCard key={index} width="100%" height="100%" />
+              ) : (
+                <TimeDealItem
+                  key={item.id}
+                  timeDealItem={item}
+                  currentTab={currentTab}
+                  isTimeDealOpen={isTimeDealOpen}
+                />
+              )}
+            </>
           );
         }}
       />
