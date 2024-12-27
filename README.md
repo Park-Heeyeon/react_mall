@@ -1,50 +1,65 @@
-# React + TypeScript + Vite
+# React Mall
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React Mall은 **React**와 **Vite**를 사용하여 구축된 웹 애플리케이션입니다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 주요 기능
 
-## Expanding the ESLint configuration
+- **타임 딜(Time Deal)**  
+  특정 시간 동안 할인된 가격으로 상품 제공
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **브랜드 딜(Brand Deal)**  
+  특정 브랜드 상품을 할인된 가격으로 제공
 
-- Configure the top-level `parserOptions` property like this:
+- **순삭 특가(Fast Deals)**  
+  빠르게 소진되는 특가 상품 제공
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **상품 검색**  
+  카테고리 및 필터를 사용한 다양한 상품 검색 기능
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **반응형 디자인**  
+  모든 디바이스에서 최적화된 사용자 경험 제공
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+---
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## ⚙️ 에러 처리 로직
+
+- **순삭 특가 및 브랜드 특가**  
+  서버에서 발생하는 에러로 인해 해당 섹션이 표출되지 않더라도, 다른 섹션은 정상적으로 작동합니다.
+
+- **타임 특가(Time Deal)**  
+  에러 발생 시 전체 페이지에 에러 페이지를 표출합니다.
+
+---
+
+## 🛠️ 사용된 기술 스택
+
+- **React**: 사용자 인터페이스를 구축하기 위한 JavaScript 라이브러리
+- **Vite**: 빠르고 간편한 프론트엔드 빌드 도구
+- **TypeScript**: 정적 타입 지원으로 안정성을 보장
+- **Tailwind CSS**: 유틸리티 기반 CSS 프레임워크
+- **React Query**: 서버 상태 관리 라이브러리
+- **Virtuoso**: 가상화된 리스트와 그리드를 제공하는 라이브러리
+
+---
+
+## 🌐 CI/CD 배포
+
+React Mall은 **지속적 통합 및 배포(CI/CD)** 환경을 통해 자동으로 빌드 및 배포됩니다.
+
+---
+
+### GitHub Actions
+
+- **자동화 프로세스**:
+  1. 코드가 `main` 브랜치에 병합되면 **GitHub Actions**가 트리거됩니다.
+  2. `yarn build` 명령어를 실행하여 프로덕션 빌드를 생성합니다.
+  3. 빌드된 파일은 **AWS S3**와 **CloudFront**로 배포됩니다.
+
+---
+
+### AWS S3 & CloudFront
+
+- **S3**: 정적 웹 애플리케이션 호스팅을 위한 파일 저장소.
+- **CloudFront**: 글로벌 CDN을 통해 빠르고 안전한 사용자 경험을 제공합니다.
