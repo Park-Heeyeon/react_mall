@@ -48,8 +48,6 @@ React Mall은 **React**와 **Vite**를 사용하여 구축된 웹 애플리케�
 
 React Mall은 **지속적 통합 및 배포(CI/CD)** 환경을 통해 자동으로 빌드 및 배포됩니다.
 
----
-
 ### GitHub Actions
 
 - **자동화 프로세스**:
@@ -63,3 +61,7 @@ React Mall은 **지속적 통합 및 배포(CI/CD)** 환경을 통해 자동으�
 
 - **S3**: 정적 웹 애플리케이션 호스팅을 위한 파일 저장소.
 - **CloudFront**: 글로벌 CDN을 통해 빠르고 안전한 사용자 경험을 제공합니다.
+
+### 배포된 페이지
+
+- **S3**: http://react-mall.s3-website-us-east-1.amazonaws.com/deals/time-deal
